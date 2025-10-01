@@ -1,0 +1,27 @@
+---
+- name: "play one"  
+  hosts: localhost
+  become: yes
+ 
+  tasks: 
+     
+     - name: "Installing the service for nginx" 
+       apt:
+         name: nginx
+         state: present
+
+     - name: "starting the service for nginx"
+       service: 
+          name: nginx 
+          state: started
+
+     - name: "copy file to the destination"
+       copy: 
+          src: ./index.html
+          dest: /var/www/html/
+
+     - name: "restart the nginx server"
+       service: 
+         name: nginx
+         state: restarted
+

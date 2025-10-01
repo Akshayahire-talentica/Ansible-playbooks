@@ -1,0 +1,6 @@
+---
+package_name: nginx
+service_name: nginx
+port_no: 80
+  
+

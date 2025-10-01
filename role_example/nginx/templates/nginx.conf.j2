@@ -1,0 +1,22 @@
+user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log;
+pid /run/nginx.pid;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    server_tokens off;
+    client_max_body_size 20M;
+
+    server {
+        listen {{ port_no }};
+        location / {
+            root /usr/share/nginx/html;
+            index index.html;
+        }
+    }
+}
+

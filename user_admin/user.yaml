@@ -1,0 +1,14 @@
+---
+
+ - name: " Adding user playbook "
+   hosts: localhost
+   become: true
+
+   tasks:
+     - name: "adding user "
+       ansible.builtin.user:
+         name: james
+         shell: /bin/bash
+         groups: docker
+         append: yes
+         
