@@ -5,7 +5,7 @@
   gather_facts: yes
 
   vars:
-    reboot_if_required: true   # Optional — reboot only if needed
+    reboot_if_required: true   
 
   tasks:
 
@@ -51,7 +51,7 @@
         - ansible_os_family == "Debian"
         - reboot_required.stat.exists
 
-    - name: Reboot if required - RedHat-based (optional logic)
+    - name: Reboot if required - RedHat-based
       ansible.builtin.reboot:
         msg: "Rebooting after updates"
         connect_timeout: 5
